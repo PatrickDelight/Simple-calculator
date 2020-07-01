@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".nums").click(function(){
+    let val1=parseInt($(this).val());
+    $("#13").click(function(){
+                        $("span").text("0");
+                    });
+    $("span").text(val1); 
+    $(".op").click(function(){
+    
+        let var2=$(this).val();
+        if(var2 == 'plus'){
+            $("span").text(val1+'+');
+            $(".nums").click(function(){
+                let var3=parseInt($(this).val());
+                $("span").text(val1+'+'+var3);
+                $("#15").click(function(){
+                    let result=val1+var3;
+                    $("span").text(result);
+                    $("#13").click(function(){
+                        $("span").text("0");
+                        location.reload();
+                    });
+                });
+            });
+        }else if(var2 == 'minus'){
+            $("span").text(val1+'-');
+            $(".nums").click(function(){
+                let var3=$(this).val();
+                $("span").text(val1+'-'+var3);
+                $("#15").click(function(){
+                    let result=val1-var3;
+                    $("span").text(result);
+                    $("#13").click(function(){
+                        $("span").text("0");
+                    });
+                });
+            });
+        }else if(var2 == 'multi'){
+            $("span").text(val1+'*');
+            $(".nums").click(function(){
+                let var3=$(this).val();
+                $("span").text(val1+'*'+var3);
+                $("#15").click(function(){
+                    let result=val1*var3;
+                    $("span").text(result);
+                    $("#13").click(function(){
+                        $("span").text("0");
+                    });
+                });
+            });
+        }else if(var2 == 'divide'){
+            $("span").text(val1+'/');
+            $(".nums").click(function(){
+                let var3=$(this).val();
+                $("span").text(val1+'/'+var3);
+                $("#15").click(function(){
+                    let result=val1/var3;
+                    $("span").text(result);
+                    $("#13").click(function(){
+                        $("span").text("0");
+                    });
+                });
+            });
+        }
+    });
+    });
+   
+});
+</script>
+    </head>
+    <body>
+
+        <div class="container">
+            <div id="result"><span>0</span></div>
+            <div class="nums-cont">
+                <button class="nums" id="1" value="9">9</button>
+                <button class="nums" id="2" value="8">8</button>
+                <button class="nums" id="3" value="7">7</button>
+                <button class="op" id="4" value="minus">-</button>
+                <button class="nums" id="5" value="6">6</button>
+                <button class="nums" id="6" value="5">5</button>
+                <button class="nums" id="7" value="4">4</button>
+                <button class="op" id="8" value="plus">+</button>
+                <button class="nums" id="9" value="3">3</button>
+                <button class="nums" id="10" value="2">2</button>
+                <button class="nums" id="11" value="1">1</button>
+                <button class="op" id="12" value="multi">*</button>
+                <button class="op" id="13" value="clear">CLR</button>
+                <button class="nums" id="14" value="0">0</button>
+                <button class="op" id="15" value="">=</button>
+                <button class="op" id="16" value="divide">/</button>
+            </div>
+        </div>
+     
+
+
+    </body>
+</html>
